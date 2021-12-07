@@ -46,7 +46,6 @@ class CharactersFragment : Fragment() {
                 }
                 Status.ERROR -> {
                     binding.progressBar.isVisible = false
-
                 }
                 Status.LOADING -> {
                     binding.progressBar.isVisible = true

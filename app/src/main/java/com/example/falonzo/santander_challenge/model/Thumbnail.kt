@@ -4,5 +4,5 @@ data class Thumbnail(
     val extension: String,
     val path: String
 ) {
-    fun getUrl() = extension + path
+    fun getUrl() = path +"."+ extension
 }
