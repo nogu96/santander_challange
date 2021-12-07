@@ -15,7 +15,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", 'MARVEL_URL', '"https://gateway.marvel.com/"'
+        buildConfigField 'String', 'MARVEL_URL', '"https://gateway.marvel.com/"'
         buildConfigField "String", 'MARVEL_PUBLIC_KEY', '"bfef3494eefe3bd82afbf884085fb660"'
         buildConfigField "String", 'MARVEL_PRIVATE_KEY', '"a9294129e4aee10ca252d559e62b3a04cdc2db18"'
     }
