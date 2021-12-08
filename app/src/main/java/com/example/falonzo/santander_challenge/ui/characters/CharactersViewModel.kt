@@ -10,8 +10,10 @@ class CharactersViewModel(
     private val characterRepository: CharacterRepository
 ): ViewModel() {
 
+    val characters = characterRepository.getCharacterList()
+
     fun getCharacterList(): LiveData<Resource<List<Character>>> {
-        return characterRepository.getCharacterList()
+        return characters
     }
 
 }

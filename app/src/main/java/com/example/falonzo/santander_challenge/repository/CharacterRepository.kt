@@ -13,9 +13,10 @@ class CharacterRepository(
     private val appExecutors: AppExecutors,
     private val characterService: CharacterService
 ) {
+    //TODO, do room db
+    private var characterList: List<Character>? = null
 
     fun getCharacterList(): LiveData<Resource<List<Character>>> {
-        var characterList: List<Character>? = null
         return object: NetworkBoundResource<List<Character>, BaseResponse<Character>>(appExecutors) {
             override fun saveCallResult(item: BaseResponse<Character>) {
                 characterList = item.data.results
