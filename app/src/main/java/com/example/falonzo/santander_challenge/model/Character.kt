@@ -1,5 +1,7 @@
 package com.example.falonzo.santander_challenge.model
 
+import java.io.Serializable
+
 data class Character(
     val comics: Container<Comic>,
     val description: String,
@@ -12,4 +14,4 @@ data class Character(
     val stories: Container<Story>,
     val thumbnail: Thumbnail,
     val urls: List<Url>
-)
+): Serializable

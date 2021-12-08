@@ -12,4 +12,7 @@ interface CharacterService {
     @GET("v1/public/characters")
     fun getCharacterList(): LiveData<ApiResponse<BaseResponse<Character>>>
 
+    @GET("v1/public/characters/{id}")
+    fun getDetail(@Path("id") characterId: Int): LiveData<ApiResponse<BaseResponse<Character>>>
+
 }

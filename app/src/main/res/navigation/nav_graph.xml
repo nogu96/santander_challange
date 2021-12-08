@@ -9,5 +9,21 @@
         android:id="@+id/charactersFragment"
         android:name="com.example.falonzo.santander_challenge.ui.characters.CharactersFragment"
         android:label="characters_fragment"
-        tools:layout="@layout/characters_fragment" />
+        tools:layout="@layout/characters_fragment" >
+        <action
+            android:id="@+id/action_charactersFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.example.falonzo.santander_challenge.ui.characterDetail.CharacterDetailFragment"
+        android:label="character_detail_fragment"
+        tools:layout="@layout/character_detail_fragment" >
+        <argument
+            android:name="character"
+            app:argType="com.example.falonzo.santander_challenge.model.Character" />
+    </fragment>
 </navigation>

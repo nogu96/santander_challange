@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.falonzo.santander_challenge.databinding.CharactersFragmentBinding
+import com.example.falonzo.santander_challenge.model.Character
 import com.example.falonzo.santander_challenge.model.Status
 import org.koin.android.ext.android.inject
 
-class CharactersFragment : Fragment() {
+class CharactersFragment : Fragment(), CharactersAdapter.Listener {
 
     private val viewModel: CharactersViewModel by inject()
     private lateinit var binding: CharactersFragmentBinding
@@ -32,7 +34,9 @@ class CharactersFragment : Fragment() {
 
         characterAdapter = CharactersAdapter()
         binding.recyclerView.apply {
-            adapter = characterAdapter
+            adapter = characterAdapter.apply {
+                set(this@CharactersFragment)
+            }
             layoutManager = GridLayoutManager(context, COLUMN_NUMBER)
         }
 
@@ -52,6 +56,14 @@ class CharactersFragment : Fragment() {
                 }
             }
         }
+    }
+
+    /*******
+     * CharactersAdapter.Listener
+     ******/
+    override fun onSelect(character: Character) {
+        val action = CharactersFragmentDirections.actionCharactersFragmentToCharacterDetailFragment(character)
+        findNavController().navigate(action)
     }
 
 }

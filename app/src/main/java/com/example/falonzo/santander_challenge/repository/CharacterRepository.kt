@@ -33,4 +33,30 @@ class CharacterRepository(
             }
         }.asLiveData()
     }
+
+    fun getCharacterDetail(characterId: Int): LiveData<Resource<Character>> {
+        return object: NetworkBoundResource<Character, BaseResponse<Character>>(appExecutors) {
+            var character: Character? = null
+            override fun saveCallResult(item: BaseResponse<Character>) {
+                item.data.results.let { characterList ->
+                    if (characterList.isNotEmpty()) {
+                        character = characterList.get(0)
+                    }
+                }
+            }
+
+            override fun shouldFetch(data: Character?): Boolean {
+                return data == null
+            }
+
+            override fun loadFromDb(): LiveData<Character> {
+                return MutableLiveData(character)
+            }
+
+            override fun createCall(): LiveData<ApiResponse<BaseResponse<Character>>> {
+                return characterService.getDetail(characterId)
+            }
+
+        }.asLiveData()
+    }
 }
