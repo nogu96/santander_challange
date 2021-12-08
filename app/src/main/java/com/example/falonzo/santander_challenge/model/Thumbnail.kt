@@ -7,4 +7,6 @@ data class Thumbnail(
     val path: String
 ): Serializable {
     fun getUrl() = path +"."+ extension
+    fun getMediumUrl() = path + "/portrait_medium." + extension
+    fun getSmallUrl() = path + "/portrait_small." + extension
 }

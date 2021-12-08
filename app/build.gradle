@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    def picasso_version = "2.71828"
+    def glide_version = "4.12.0"
     def okhttp_log_version = "4.9.3"
     def retrofit_version = "2.9.0"
     def recycler_version = "1.2.1"
@@ -59,7 +59,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
     implementation "io.insert-koin:koin-android:$koin_version"
-    implementation "com.squareup.picasso:picasso:$picasso_version"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"

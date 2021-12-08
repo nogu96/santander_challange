@@ -1,11 +1,12 @@
 package com.example.falonzo.santander_challenge.extension
 
 import android.widget.ImageView
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 
 fun ImageView.load(url: String) {
-    Picasso
-        .get()
+    Glide
+        .with(context)
         .load(url)
         .into(this)
+
 }
