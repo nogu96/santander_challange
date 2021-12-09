@@ -20,7 +20,7 @@ class CharacterRepository(
                 characterList = item.data.results
             }
 
-            override fun shouldFetch(data: List<Character>?) = data == null
+            override fun shouldFetch(data: List<Character>?) = true
 
             override fun loadFromDb(): LiveData<List<Character>> {
                 return MutableLiveData(characterList)
